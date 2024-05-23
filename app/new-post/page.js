@@ -1,4 +1,7 @@
+import { redirect } from 'next/navigation.js';
+
 import { storePost } from '@/lib/posts';
+import FormSubmit from '@/components/form-submit.js';
 
 export default function NewPostPage() {
   async function createPost(formData) {
@@ -13,6 +16,8 @@ export default function NewPostPage() {
       content,
       userId: 1
     })
+
+    redirect('/feed');
   }
 
   return (
@@ -36,10 +41,7 @@ export default function NewPostPage() {
           <label htmlFor="content">Content</label>
           <textarea id="content" name="content" rows="5" />
         </p>
-        <p className="form-actions">
-          <button type="reset">Reset</button>
-          <button>Create Post</button>
-        </p>
+       <FormSubmit />
       </form>
     </>
   );
