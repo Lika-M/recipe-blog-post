@@ -14,15 +14,15 @@ export default function NewPostPage() {
     let errors = [];
 
     if (!title || title.trim() === '') {
-      return errors.push('Title is required!');
+       errors.push('Title is required!');
     }
 
     if (!content || content.trim() === '') {
-      return errors.push('Content is required!');
+      errors.push('Content is required!');
     }
 
     if (!image || image.size === 0) {
-      return errors.push('Image is required!');
+      errors.push('Image is required!');
     }
 
     if (errors.length > 0) {
