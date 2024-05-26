@@ -188,6 +188,7 @@ main {
 .like-button {
   background-color: transparent;
   border: none;
+  cursor: pointer;
 }
 
 .like-button svg {
