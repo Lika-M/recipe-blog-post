@@ -43,6 +43,6 @@ export async function createPost(prevState, formData) {
         content,
         userId: 1
     })
-    revalidatePath('/feed', 'page');
+    revalidatePath('/', 'page');
     redirect('/feed');
 }
