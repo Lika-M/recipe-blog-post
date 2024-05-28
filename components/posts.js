@@ -9,6 +9,20 @@ import { toggleLike } from '@/actions/like-post.js';
 
 function Post({ post, action }) {
 
+  function imageLoader({ src, width, quality }) {
+    //src:
+    //'https://res.cloudinary.com/dnpjxqc7r/image/upload/v1716741971/recipe-blog-post/aqwjz0nisxsjexfwdpbw.png'
+    //claudinary define:
+    //https://res.cloudinary.com/demo/image/upload/c_thumb,g_faces,h_250,w_250/r_max/co_rgb:F8F3F0,e_outline:10/b_rgb:DBE0EA/happy_people;
+   
+
+    const urlStart = src.split('upload/')[0];
+    const urlEnd = src.split('upload/')[1];
+    const transform = `w_200,q_75`
+
+    console.log(`${urlStart}upload/${transform}/${urlEnd}`)
+    return `${urlStart}upload/${transform}/${urlEnd}`;
+  }
   return (
     <article className="post">
       <div className="post-image">
@@ -16,6 +30,7 @@ function Post({ post, action }) {
           src={post.image}
           alt={post.title}
           fill
+          loader={imageLoader}
         />
       </div>
       <div className="post-content">
