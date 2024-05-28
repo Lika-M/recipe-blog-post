@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "mkdir .\\tmp && copy posts.db .\\tmp\\posts.db",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
