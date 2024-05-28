@@ -1,6 +1,7 @@
 'use client';
 
 import { useOptimistic } from 'react';
+import Image from 'next/image';
 
 import { formatDate } from '@/lib/format';
 import LikeButton from './like-icon';
@@ -11,7 +12,11 @@ function Post({ post, action }) {
   return (
     <article className="post">
       <div className="post-image">
-        <img src={post.image} alt={post.title} />
+        <Image
+          src={post.image}
+          alt={post.title}
+          fill
+        />
       </div>
       <div className="post-content">
         <header>
