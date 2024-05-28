@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "mkdir .\\tmp && copy posts.db .\\tmp\\posts.db",
+    "prebuild": "node -e \"const os = require('os'); const fs = require('fs'); const path = require('path'); const isMac = os.platform() === 'darwin'; const tmpDir = isMac ? './tmp' : '.\\\\tmp'; const copyCmd = isMac ? 'cp' : 'copy'; if (!fs.existsSync(tmpDir)) { fs.mkdirSync(tmpDir); } fs.copyFileSync(path.join(process.cwd(), 'posts.db'), path.join(tmpDir, 'posts.db'));\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
